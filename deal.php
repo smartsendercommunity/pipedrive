@@ -196,8 +196,8 @@ if ($input["dealId"] == NULL) {
     }
     if ($createLead["data"]["id"] != NULL) {
         $dealId = $createLead["data"]["id"];
-        $logDescription[] = "Создана сделка: ".$leadId;
-        $result["leadId"] = $dealId;
+        $logDescription[] = "Создана сделка: ".$dealId;
+        $result["dealId"] = $dealId;
         $result["action"] = "create";
         $result["result"] = $createLead;
     }  else {
