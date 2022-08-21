@@ -44,7 +44,7 @@ function send_bearer($url, $token, $type = "GET", $param = []){
     $descriptor = curl_init($url);
      curl_setopt($descriptor, CURLOPT_POSTFIELDS, json_encode($param));
      curl_setopt($descriptor, CURLOPT_RETURNTRANSFER, 1);
-     curl_setopt($descriptor, CURLOPT_HTTPHEADER, array('User-Agent: M-Soft Integration', 'Content-Type: application/json', 'Authorization: Bearer '.$token)); 
+     curl_setopt($descriptor, CURLOPT_HTTPHEADER, array('User-Agent: Smart Sender - GitHub', 'Content-Type: application/json', 'Authorization: Bearer '.$token)); 
      curl_setopt($descriptor, CURLOPT_CUSTOMREQUEST, $type);
     $itog = curl_exec($descriptor);
     curl_close($descriptor);
@@ -63,7 +63,7 @@ function send_request($url, $header = [], $type = 'GET', $param = [], $raw = "js
              curl_setopt($descriptor, CURLOPT_POSTFIELDS, $param);
         }
     }
-    $header[] = 'User-Agent: M-Soft Integration(https://mufiksoft.com)';
+    $header[] = 'User-Agent: Smart Sender - GitHub(https://github.com/smartsendercommunity)';
      curl_setopt($descriptor, CURLOPT_RETURNTRANSFER, 1);
      curl_setopt($descriptor, CURLOPT_HTTPHEADER, $header); 
      curl_setopt($descriptor, CURLOPT_CUSTOMREQUEST, $type);
