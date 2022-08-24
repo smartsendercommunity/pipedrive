@@ -186,6 +186,11 @@ if ($input["manager"] != NULL) {
         }
     }
 }
+foreach ($input as $fieldKey => $fieldValue) {
+    if ($leadFields[$fieldKey] != NULL) {
+        $lead[$leadFields[$fieldKey]] = $fieldValue;
+    }
+}
 // Создание/обновление контакта
 if ($input["dealId"] == NULL) {
     // Создание контакта
