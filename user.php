@@ -215,6 +215,11 @@ if ($contactId == NULL) {
         $updateContact = json_decode(send_request("https://api.pipedrive.com/v1/persons/".$contactId."?api_token=".$pdKey, [], "PUT", $sendContact), true);
     }
     if ($updateContact["success"] === true) {
+        if (file_exists('pdData/users.json')) {
+            $users = json_decode(file_get_contents('pdData/users.json'), true);
+        }
+        $users[$input["userId"]] = $contactId;
+        file_put_contents('pdData/users.json', json_encode($users));
         $logDescription[] = "Обновлен контакт ".$contactId;
         $result["contactId"] = $contactId;
         $result["action"] = "update";
