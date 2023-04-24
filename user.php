@@ -238,7 +238,7 @@ if ($contactId == NULL) {
 
 if ($input["photo"] != NULL) {
     file_put_contents("pdData/tempPhoto".$input["userId"].".jpg", file_get_contents($input["photo"]));
-    $photo["file"] =  new CURLFILE("pdData/tempPhoto".$input["userId"].".jpg", 'image/jpeg',);
+    $photo["file"] =  new CURLFILE("pdData/tempPhoto".$input["userId"].".jpg", 'image/jpeg');
     $sendPhoto = json_decode(send_request("https://api.pipedrive.com/v1/persons/".$contactId."/picture?api_token=".$pdKey, [], "POST", $photo, "data"), true);
     $result["addedPhoto"] = $sendPhoto;
 }
