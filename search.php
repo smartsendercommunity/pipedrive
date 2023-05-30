@@ -2,6 +2,7 @@
 
 include("config.php");
 
+$input = json_decode(file_get_contents("php://input"), true);
 if ($input["contact"]["field"] != NULL && $input["contact"]["value"] != NULL) {
     $search = "contact";
 } else if ($input["deal"]["field"] != NULL && $input["deal"]["value"] != NULL) {
