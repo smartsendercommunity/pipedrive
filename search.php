@@ -15,7 +15,7 @@ if ($input["contact"]["field"] != NULL && $input["contact"]["value"] != NULL) {
 
 // Поиск контакта
 if ($search == "contact") {
-    $searchContact = json_decode(send_request("https://api.pipedrive.com/v1/persons/search?api_token=".$pdKey."&limit=500&term=".urlencode($input["contatc"]["value"])."&fields=custom_fields"), true);
+    $searchContact = json_decode(send_request("https://api.pipedrive.com/v1/persons/search?api_token=".$pdKey."&limit=500&term=".urlencode($input["contact"]["value"])."&fields=custom_fields"), true);
     if ($searchContact["data"]["items"] != NULL) {
         foreach ($searchContact["data"]["items"] as $oneContact) {
             $checkContact = json_decode(send_request("https://api.pipedrive.com/v1/persons/".$oneContact["item"]["id"]."?api_token=".$pdKey), true);
@@ -36,7 +36,7 @@ if ($search == "contact") {
 
 // Поиск сделки
 if ($search == "deal") {
-    $searchDeal = json_decode(send_request("https://api.pipedrive.com/v1/deals/search?api_token=".$pdKey."&limit=500&term=".urlencode($input["contatc"]["value"])."&fields=custom_fields"), true);
+    $searchDeal = json_decode(send_request("https://api.pipedrive.com/v1/deals/search?api_token=".$pdKey."&limit=500&term=".urlencode($input["deal"]["value"])."&fields=custom_fields"), true);
     if ($searchDeal["data"]["items"] != NULL) {
         foreach ($searchDeal["data"]["items"] as $oneDeal) {
             $checkDeal = json_decode(send_request("https://api.pipedrive.com/v1/deals/".$oneDeal["item"]["id"]."?api_token=".$pdKey), true);
